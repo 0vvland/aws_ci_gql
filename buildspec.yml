@@ -1,0 +1,17 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - zip -r graphql.zip ./node_modules/* ./common.js ./handler.js ./schema.js
+      - zip -r auth.zip ./node_modules/* ./common.js ./auth.js
+      - zip -r oauth.zip ./node_modules/* ./common.js ./oauth.js
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - graphql.zip
+    - auth.zip
+    - oauth.zip
